@@ -1,0 +1,685 @@
+@charset "utf-8";
+
+/* layout */
+body {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+  }
+  
+  html { height: -webkit-fill-available; }
+
+#wrap {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+#main_page {
+    position: fixed;
+    left: 0; right: 0; top: 0;
+    z-index: 0;
+    background-color: #fff;
+}
+#portfolio {
+    position: relative;
+    z-index: 1;
+    margin-top: 100vh;
+    background-color: #111;
+}
+#contact {
+    position: relative;
+    z-index: 1;
+    background-color: #fff;
+}
+#footer {
+    position: relative;
+    z-index: 1;
+    background-color: #fff;
+}
+
+/* container */
+.container {
+    position: relative;
+    width: 1280px;
+    margin: 0 auto;
+}
+
+/* row */
+.row {padding: 0 28px;}
+
+/* header - ham_btn */
+.ham {
+    display: block;
+    position: fixed;
+    top: 5px; left: 15px;
+    z-index: 100;
+    width: 80px; height: 80px;
+}
+.ham.active { left: 10px; }
+.ham span {
+    display: block;
+    height: 13px;
+    background: #111;
+}
+.ham span.first {
+    position: absolute;
+    top: 21px; left: 10px;
+    width: 45px;
+    transition: width 0.3s, transform 0.3s;
+}
+.ham:hover span.first {
+    width: 60px;
+    transition: width 0.3s, transform 0.3s;
+}
+.ham span.second {
+    position: absolute;
+    top: 47px; left: 10px;
+    width: 60px;
+    transition: transform 0.3s;
+}
+.ham span.white { background: #fff; }
+.ham span.black { background: #111; }
+
+.ham.active span.first {
+    top: 34px;
+    width: 60px;
+    transform: rotate(45deg);
+    transition: transform 0.3s;
+}
+.ham.active span.second {
+    top: 34px;
+    transform: rotate(-45deg);
+    transition: transform 0.3s;
+}
+
+/* header - nav_menu */
+.nav_bg {
+    position: fixed;
+    top: 0; left: 0;
+    width: 0; height: 100%;
+    z-index: 80;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+}
+.nav_bg .nav ul li {
+    margin: 50px 0;
+    text-align: center;
+    opacity: 0;
+}
+.nav_bg .nav ul li a {
+    display: block;
+    color: #fff;
+    font-size: 120px;
+    font-family: 'SBAggroB';
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #111;
+    transition: opacity 0.2s ease;
+}
+.nav_bg .nav ul li:nth-child(1) a {
+    letter-spacing: 170px;
+    text-indent: 150px;
+}
+.nav_bg .nav ul li:nth-child(2) a{ letter-spacing: 5px; }
+.nav_bg .nav ul li:nth-child(3) a{ letter-spacing: 30px; }
+.nav_bg .nav ul li a:hover { color: #111; }
+
+.nav_bg.visible {
+    width: 100%;
+    opacity: 1;
+    visibility: visible;
+}
+.nav_bg.visible .nav ul li { animation: fadeInLeft 0.3s ease forwards; }
+.nav_bg.visible nav ul li:nth-child(1){ animation-delay: 0.23s; }
+.nav_bg.visible nav ul li:nth-child(2){ animation-delay: 0.26s; }
+.nav_bg.visible nav ul li:nth-child(3){ animation-delay: 0.29s; }
+
+
+/* main */
+.main_page {
+    position: relative;
+    height: 100vh;
+    text-align: center;
+}
+
+.main_page h1 {
+    line-height: 100vh;
+    font-size: 6vw;
+}
+.main_page .line {
+    position: absolute;
+    left: 50%; bottom: 0;
+    transform: translateX(-50%);
+    width: 1px; height: 100px;
+    background: #222;
+}
+
+/* portfolio */
+.portfolio { padding-bottom: 210px; }
+
+.portfolio h2 {
+    padding: 150px 0 100px 50px;
+    font-size: 70px;
+    color: #fff;
+}
+
+.portfolio > div {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 37px;
+    margin-bottom: 200px;
+}
+.portfolio > div .pf_desc strong {
+    display: inline-block;
+    margin: 10px 0 6px 0;
+    font-size: 120px;
+    font-weight: 900;
+    font-family: 'InfinitySans-CondBoldA1';
+    color: #fff;
+}
+.portfolio > div .pf_desc h3 {
+    display: inline-block;
+    margin-left: 15px;
+    vertical-align: 5px;
+    font-size: 40px;
+    font-family: 'InfinitySans-CondBoldA1';
+    color: #fff;
+}
+
+.portfolio > div .pf_desc .desc {
+    width: 420px; height: 434px;
+    line-height: 26px;
+    padding: 35px 30px;
+    background-color: #fff;
+}
+.portfolio > div .pf_desc .short { padding-top: 55px; }
+.portfolio > div .pf_desc .desc > ul li { margin-bottom: 3px; }
+.portfolio > div .pf_desc .desc > ul li span {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 15px;
+}
+.portfolio > div .pf_desc .desc > ul li span.bar {
+    position: relative;
+    display: block;
+    padding-left: 20px;
+}
+.portfolio > div .pf_desc .desc > ul li span.bar::before {
+    content: '';
+    position: absolute;
+    top: 11px; left: 10px;
+    display: block;
+    width: 5px; height: 1px;
+    background: #111;
+}
+
+.portfolio > div .pf_desc .btn { margin-top: 20px; }
+.portfolio > div .pf_desc .btn ul {
+    display: flex;
+    width: 356px;
+    flex-flow: row wrap;
+}
+.portfolio > div .pf_desc .btn ul li {
+    display: block;
+    padding: 0 8px 8px 0;
+}
+.portfolio > div .pf_desc .btn ul li:nth-child(2n),
+.portfolio > div .pf_desc .btn ul li:nth-child(5) { padding-right: 0; }
+.portfolio > div .pf_desc .btn ul li a {
+    display: block;
+    width: 78px;
+    padding: 6px 48px;
+    text-align: center;
+    background-color: #111;
+    font-size: 15px;
+    color: #fff;
+}
+.portfolio > div .pf_desc .btn ul li a.one { width: 260px; }
+.portfolio > div .pf_desc .btn ul li a:nth-child(2n){ margin-right: 0; }
+.portfolio > div .pf_desc .btn ul li a:hover { background-color: #333; }
+
+.portfolio > div .pf_image { width: 630px; height: 630px; }
+.portfolio > div .img1 {
+    background: url(../img/minumsa.png) no-repeat center center;
+    background-color: #fff;
+    background-size: 100%;
+}
+.portfolio > div .img2 {
+    background: url(../img/sillok.png) no-repeat center center;
+    background-color: #fff;
+    background-size: 100%;
+}
+.portfolio > div .img3 {
+    background: url(../img/megabox.png) no-repeat center center;
+    background-color: #fff;
+    background-size: 100%;
+}
+
+.portfolio .pf_cont2 { flex-direction: row-reverse; }
+.portfolio .pf_cont2 .pf_desc { text-align: right; }
+.portfolio .pf_cont2  .pf_desc .desc { text-align: left; }
+.portfolio .pf_cont2 .pf_desc strong { margin: 10px 10px 6px 0; }
+
+/* footer */
+.footer { height: 100vh; }
+
+.footer h2 {
+    padding: 150px 0 100px 50px;
+    font-size: 70px;
+    color: #222;
+}
+.footer p {
+    padding-left: 110px;
+    color: #222;
+}
+.footer p em {
+    display: block;
+    font-size: 45px;
+}
+.footer span {
+    position: absolute;
+    left: 50%; bottom: 0;
+    transform: translateX(-50%);
+    font-size: 18px;
+    color: #222;
+}
+
+
+/* animation */
+@keyframes fadeInLeft{
+    0% {opacity: 0; transform: translateX(-25%);}
+    100% {opacity: 100%; transform: translateX(0);}
+}
+
+
+/* media query */
+@media screen and (max-width: 1440px){
+    .portfolio > div { justify-content: space-around; }
+}
+
+@media screen and (max-width: 1290px){
+    .container { width: 100%; }
+
+    .row { padding: 0 85px; }
+
+    .nav_bg .nav ul li a { font-size: 100px; }
+    .nav_bg .nav ul li:nth-child(1) a {
+        letter-spacing: 147px;
+        text-indent: 145px;
+    }
+    .nav_bg .nav ul li:nth-child(3) a {
+        letter-spacing: 25px;
+        text-indent: 21px;
+    }
+
+    .main_page .line { height: 80px; }
+
+    .portfolio > div {
+        justify-content: space-between;
+        padding: 0 30px;
+    }
+    .portfolio > div .pf_desc strong { font-size: 100px; }
+
+    .portfolio > div .pf_image { width: 600px; height: 600px; }
+}
+
+@media screen and (max-width: 1180px){
+    .row { padding: 0 95px; }
+
+    .main_page .line { height: 70px; }
+
+    .portfolio > div { justify-content: flex-start; }
+    .portfolio > div .pf_desc strong { font-size: 100px; }
+    .portfolio > div .pf_desc .btn { width: 360px; }
+
+    .portfolio > div .pf_image {
+        width: 434px; height: 434px;
+        margin-top: 166px;
+    }
+    
+    .footer p em { font-size: 40px; }
+}
+
+@media screen and (max-width: 1024px){
+    .row {padding: 0 85px;}
+
+    .ham {
+        left: 17px;
+        width: 70px; height: 70px;
+    }
+    .ham span { height: 11px; }
+    .ham span.first {
+        left: 8px;
+        width: 40px;
+    }
+    .ham span.second {
+        top: 43px; left: 8px;
+        width: 55px;
+    }
+    .ham:hover span.first { width: 55px; }
+    .ham.active span.first {
+        top: 29px;
+        width: 55px;
+    }
+    .ham.active span.second { top: 29px; }
+
+    .nav_bg .nav ul li { margin: 40px 0; }
+    .nav_bg .nav ul li a { font-size: 80px; }
+    .nav_bg .nav ul li:nth-child(1) a {
+        letter-spacing: 120px;
+        text-indent: 117px;
+    }
+    .nav_bg .nav ul li:nth-child(3) a{
+        letter-spacing: 21px;
+        text-indent: 15px;
+    }
+
+    .main_page .line { height: 65px; }
+
+    .portfolio h2 {
+        padding: 80px 0 80px 20px;
+        font-size: 60px;
+    }
+    .portfolio > div {
+        justify-content: center;
+        padding: 0 17px;
+    }
+    .portfolio > div .pf_desc .desc { width: 410px; }
+
+    .portfolio > div .pf_image {
+        width: 410px; height: 434px;
+        margin-top: 166px;
+    }
+
+    .portfolio .pf_cont2 {
+        justify-content: center;
+        flex-direction: row;
+    }
+    .portfolio .pf_cont2 .pf_desc { text-align: left; }
+
+    .footer { height: 700px; }
+    .footer h2 {
+        padding: 80px 0 80px 20px;
+        font-size: 60px;
+    }
+}
+
+@media screen and (max-width: 960px){
+    .row { padding: 0 90px; }
+
+    .main_page .line { height: 60px; }
+        
+    .portfolio { padding-bottom: 150px; }
+    .portfolio h2 {
+        padding: 80px 0 80px 20px;
+        font-size: 55px;
+    }
+    .portfolio > div {
+        display: block;
+        padding: 0 20px;
+        margin-bottom: 150px;
+    }
+    .portfolio > div .pf_desc strong { font-size: 80px; }
+    .portfolio > div .pf_desc .desc {
+        width: 100%; height: fit-content;
+        padding: 40px 44px;
+    }
+
+    .portfolio > div .pf_desc .btn { width: auto; }
+    .portfolio > div .pf_desc .btn ul {
+        width: 100%;
+        padding-top: 10px;
+    }
+    .portfolio > div .pf_desc .btn ul li { width: 50%; }
+    .portfolio > div .pf_desc .btn ul li:nth-child(5) { width: 100%; }
+    .portfolio > div .pf_desc .btn ul li a { width: auto; }
+    .portfolio > div .pf_desc .btn ul li a.one { width : auto; }
+
+    .portfolio > div .pf_image {
+        width: 100%; height: 440px;
+        margin-top: 0;
+    }
+    .portfolio > div .img1 {
+        background: url(../img/minumsa2.png) no-repeat center center;
+        background-color: #fff;
+        background-size: 100%;
+    }
+    .portfolio > div .img2 {
+        background: url(../img/sillok2.png) no-repeat center center;
+        background-color: #fff;
+        background-size: 100%;
+    }
+    .portfolio > div .img3 {
+        background: url(../img/megabox2.png) no-repeat center center;
+        background-color: #fff;
+        background-size: 100%;
+    }
+
+    .footer { height: 600px; }
+    .footer h2 {
+        padding: 80px 0 80px 20px;
+        font-size: 55px;
+    }
+    .footer p em { font-size: 35px; }
+}
+
+@media screen and (max-width: 768px){
+    .row { padding: 0 60px; }
+    
+    .ham {
+        top: 16px; left: 20px;
+        width: 50px; height: 50px;
+    }
+    .ham.active { left: 15px; }
+    .ham span { height: 8px; }
+    .ham span.first {
+        top: 14px; left: 5px;
+        width: 30px;
+    }
+    .ham span.second {
+        top: 31px; left: 5px;
+        width: 40px;
+    }
+    .ham:hover span.first { width: 40px; }
+    .ham.active span.first {
+        top: 21px;
+        width: 40px;
+    }
+    .ham.active span.second { top: 21px; }
+
+    .nav_bg .nav ul li { margin: 35px 0; }
+    .nav_bg .nav ul li a { font-size: 65px; }
+    .nav_bg .nav ul li:nth-child(1) a {
+        letter-spacing: 100px;
+        text-indent: 97px;
+    }
+    .nav_bg .nav ul li:nth-child(3) a {
+        letter-spacing: 19px;
+        text-indent: 17px;
+    }
+
+    .main_page h1 { font-size: 8vw; }
+
+    .portfolio { padding-bottom: 100px; }
+    .portfolio h2 { font-size: 45px; }
+    .portfolio > div { margin-bottom: 100px; }
+    .portfolio > div .pf_desc strong { font-size: 65px; }
+    .portfolio .pf_cont2 .pf_desc strong { margin: 10px 5px 6px 0; }
+    .portfolio > div .pf_desc h3 {font-size: 33px;}
+    .portfolio > div .pf_desc .desc { padding: 40px 35px; }
+
+    .portfolio > div .pf_image { height: 370px; }
+    
+    .footer { height: 500px; }
+    .footer .contact { height: inherit; }
+    .footer h2 { font-size: 45px; }
+    .footer p {
+        position: absolute;
+        left: 50%; top: 50%;
+        width: fit-content;
+        padding-left: 0;
+        transform: translate(-50%, -50%);
+    }
+    .footer p em { font-size: 33px; }
+    .footer span { font-size: 16px; }
+}
+
+@media screen and (max-width: 600px){
+    .nav_bg .nav ul li { margin: 30px 0; }
+
+    .main_page .line { height: 55px; }
+
+    .portfolio h2 { padding: 80px 0 50px 20px; }
+    .portfolio > div .pf_desc .btn ul {
+        flex-flow: column wrap;
+        padding-top: 10px;
+    }
+    .portfolio > div .pf_desc .btn ul li {
+        width: 100%;
+        padding: 0 0 8px 0;
+    }
+
+    .portfolio > div .pf_image { height: 300px; }
+
+    .footer p em { font-size: 28px; }
+    .footer span {
+        width: 78%;
+        text-align: center;
+    }
+
+}
+
+@media screen and (max-width: 540px){
+    .nav_bg .nav ul li { margin: 25px 0; }
+    .nav_bg .nav ul li a { font-size: 50px; }
+    .nav_bg .nav ul li:nth-child(1) a {
+        letter-spacing: 80px;
+        text-indent: 77px;
+    }
+    .nav_bg .nav ul li:nth-child(3) a {
+        letter-spacing: 16px;
+        text-indent: 8px;
+    }
+
+    .portfolio { padding-bottom: 70px; }
+    .portfolio h2 {
+        padding: 55px 0 55px 20px;
+        font-size: 40px;
+    }
+    .portfolio > div { margin-bottom: 70px; }
+    .portfolio > div .pf_desc strong { font-size: 55px; }
+    .portfolio > div .pf_desc h3 {
+        font-size: 28px;
+        margin-left: 7px;
+    }
+    .portfolio > div .pf_desc .desc { padding: 40px 25px 0; }
+    .portfolio > div .pf_desc .desc > ul li span { font-size: 14px; }
+
+    .footer { height: 400px; }
+    .footer h2 {
+        padding: 55px 0 55px 20px;
+        font-size: 40px;
+    }
+    .footer p em { font-size: 25px; }
+    .footer span { font-size: 14px; }
+} 
+
+@media screen and (max-width: 480px){
+    .row { padding: 0 40px; }
+
+    .ham {
+        top: 16px; left: 13px;
+        width: 40px; height: 40px;
+    }
+    .ham span { height: 7px; }
+    .ham span.first {
+        top: 9px; left: 3px;
+        width: 23px;
+    }
+    .ham span.second {
+        top: 26px; left: 3px;
+        width: 33px;
+    }
+    .ham:hover span.first { width: 33px; }
+    .ham.active span.first {
+        top: 17px;
+        width: 33px;
+    }
+    .ham.active span.second { top: 17px; }
+
+    .nav_bg .nav ul li a { font-size: 37px; }
+    .nav_bg .nav ul li:nth-child(1) a {
+        letter-spacing: 64px;
+        text-indent: 63px;
+    }
+    .nav_bg .nav ul li:nth-child(3) a {
+        letter-spacing: 14px;
+        text-indent: 10px;
+    }
+
+    .main_page .line { height: 50px; }
+
+    .portfolio h2 {
+        padding: 50px 0 40px 20px;
+        font-size: 37px;
+    }
+    .portfolio > div .pf_desc strong { font-size: 50px; }
+    .portfolio > div .pf_desc h3 { font-size: 25px; }
+    .portfolio > div .pf_desc .desc { padding: 25px 18px 0; }
+    .portfolio > div .pf_desc .desc > ul li span {font-size: 13px; }
+    .portfolio > div .pf_desc .btn ul li a { font-size: 14px; }
+
+    .portfolio > div .pf_image { height: 250px; }
+
+    .footer { height: 350px; }
+    .footer h2 {
+        padding: 50px 0 40px 20px;
+        font-size: 37px;
+    }
+    .footer p em { font-size: 22px; }
+}
+
+@media screen and (max-width: 375px){
+    .nav_bg .nav ul li { margin: 20px 0; }
+    .nav_bg .nav ul li:nth-child(2) a {
+        letter-spacing: 6px;
+        text-indent: 6px;
+    }
+
+    .portfolio h2 { font-size: 33px; }
+    .portfolio > div .pf_image { height: 200px; }
+
+    .footer h2 { font-size: 33px; }
+    .footer p em { font-size: 19px; }
+}
+
+@media screen and (max-width: 320px){
+    .row { padding: 0px 36px; }
+
+    .nav_bg .nav ul li a { font-size: 33px; }
+    .nav_bg .nav ul li:nth-child(1) a {
+        letter-spacing: 60px;
+        text-indent: 60px;
+    }
+    .nav_bg .nav ul li:nth-child(2) a {
+        letter-spacing: 6px;
+        text-indent: 5px;
+    }
+
+    .portfolio { padding-bottom: 55px; }
+    .portfolio h2 { padding: 50px 0 35px 15px; }
+    .portfolio > div { margin-bottom: 55px; }
+    .portfolio > div .pf_desc strong { font-size: 40px; }
+    .portfolio > div .pf_desc h3 { font-size: 20px; }
+    .portfolio > div .pf_desc .desc { padding: 15px 13px 0; }
+    .portfolio > div .pf_desc .btn ul li a { font-size: 13px; }
+
+    .portfolio > div .pf_image { height: 160px; }
+
+    .footer { height: 300px; }
+    .footer h2 { padding: 50px 0 35px 15px; }
+    .footer p em { font-size: 17px; }
+    .footer span { font-size: 13px; }
+}
