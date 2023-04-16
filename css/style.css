@@ -276,6 +276,7 @@ body {
 }
 .footer p em {
     display: block;
+    width: max-content;
     font-size: 45px;
 }
 .footer span {
@@ -522,7 +523,7 @@ body {
         padding-left: 0;
         transform: translate(-50%, -50%);
     }
-    .footer p em { font-size: 33px; }
+    .footer p em { font-size: 30px; }
     .footer span { font-size: 16px; }
 }
 
@@ -543,7 +544,7 @@ body {
 
     .portfolio > div .pf_image { height: 300px; }
 
-    .footer p em { font-size: 28px; }
+    .footer p em { font-size: 26px; }
     .footer span {
         width: 78%;
         text-align: center;
@@ -680,6 +681,6 @@ body {
 
     .footer { height: 300px; }
     .footer h2 { padding: 50px 0 35px 15px; }
-    .footer p em { font-size: 17px; }
+    .footer p em { font-size: 16px; }
     .footer span { font-size: 13px; }
 }

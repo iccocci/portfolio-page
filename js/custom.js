@@ -1,6 +1,6 @@
 //햄버튼 색 변화
 var portfolioOffset = $(".portfolio").offset().top - 50,
-    contactOffset = $(".contact").offset().top - 50;
+    contactOffset = $(".footer").offset().top - 50 ;
 
 $(".ham").each(function(){
     $(window).scroll(function(){
